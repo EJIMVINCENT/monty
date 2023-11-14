@@ -1,3 +1,5 @@
+#include "monty.h"
+
 /**
  * pop_Op - removes a value from the top of a stack
  * @stack: a doubly linked list

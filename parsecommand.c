@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void remComment(char *line)
+int remComment(char *line)
 {
 	int i = 0;
 
@@ -16,8 +16,8 @@ void remComment(char *line)
 
 	for (i = 0; line[i]; i++)
 	{
-		if (line[i] != ' ' || line[i] != '\t' || line != '\n')
-			return (1)
+		if (line[i] != ' ' || line[i] != '\t' || line[i] != '\n')
+			return (1);
 	}
 	return 0;
 
@@ -32,13 +32,13 @@ char **parseCom(char *line)
 
 	temp = trimLine(line);
 
-	command = malloc(sizeof(char *) * 3)
+	command = malloc(sizeof(char *) * 3);
 	command[0] = strtok(temp, DELIM);
 	while (command[i])
 	{
 		command[++i] = strtok(NULL, DELIM);
 	}
-	return (command)
+	return (command);
 }
 
 
@@ -49,8 +49,8 @@ char *trimLine(char *line)
 
 	for (i = 0; line[i]; i++)
 	{
-		if (line[i] != ' ' || line[i] != '\t' || line != '\n')
-			break
+		if (line[i] != ' ' || line[i] != '\t' || line[i] != '\n')
+			break;
 	}
 	return (&line[i]);
 }

@@ -6,11 +6,11 @@ void addNodesStart(stack_t **head, int n)
 	stack_t *new;
 
 	if (head == NULL)
-		return (NULL);
+		return;
 
-	new = malloc(sizeof(stack_t))
+	new = malloc(sizeof(stack_t));
 	if (!new)
-		return (NULL);
+		return;
 
 	new->n = n;
 	new->prev = NULL;
@@ -18,7 +18,6 @@ void addNodesStart(stack_t **head, int n)
 	*head = new;
 	if (new->next != NULL)
 		new->next->prev = new;
-	return (new);
 
 }
 
@@ -30,10 +29,10 @@ void addNodeEnd(stack_t **head, int n)
 	stack_t *new, *temp = *head;
 
 	if (!head)
-		return (NULL);
+		return;
 	new = malloc(sizeof(stack_t));
 	if (!new)
-		return (NULL);
+		return;
 
 	new->n = n;
 	new->next = NULL;
@@ -41,14 +40,13 @@ void addNodeEnd(stack_t **head, int n)
 	{
 		*head = new;
 		(*head)->prev = NULL;
-		return (*head);
+		return;
 	}
 
 	while (temp->next)
 		temp = temp->next;
 	temp->next = new;
 	new->prev = temp;
-	return (new);
 }
 
 

@@ -7,8 +7,8 @@
 
 int main(int ac, char *argv[])
 {
-	stack_t list;
-	m montyD = {NULL, NULL, false, NULL, 0};
+	stack_t *list;
+	m montyD = {NULL, NULL, NULL, 0, false};
 
 	if (ac != 2)
 	{
@@ -16,7 +16,7 @@ int main(int ac, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	montyD. = fopen(argv[1], "r");
+	montyD.file = fopen(argv[1], "r");
 	if (montyD.file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -24,18 +24,18 @@ int main(int ac, char *argv[])
 	}
 
 	montyLoop(&list, &montyD);
+	return (0);
 }
 
 
 
 
 
-void montyLoop(stack_t *list, m *montyD)
+void montyLoop(stack_t **list, m *montyD)
 {
 	char *line = NULL;
-	size_t len = 0;
+	int len = 0;
 	int check;
-	void (*func)(stack_t **, unsigned int);
 
 	while (1)
 	{
@@ -48,10 +48,8 @@ void montyLoop(stack_t *list, m *montyD)
 		 if (!check)
 		 	continue;
 		montyD->command = parseCom(montyD->line);
-		func = findCom(montyD->command[0]);
-			if (!func)
-				continue;
-		func(&list, montyD);
+
+		findCom(list, montyD);
 		free (line);
 	}
 }

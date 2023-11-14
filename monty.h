@@ -10,6 +10,28 @@
 #define DELIM " \t" 
 
 
+
+/**
+ * m - store the basic elements we are going to need
+ *
+ * @command: a pointer to the current command
+ * @line: pointer to the current line
+ * @isQ: check if stack or Queue
+ *
+ * Description: Store monty project basic comands
+ *
+ */
+
+typedef struct monty
+{
+	char **command;
+	char *line;
+	FILE *file;
+	unsigned int lineNum;
+	bool isQ;
+} m;
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  *
@@ -46,43 +68,23 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, m *montyD);
 } instruction_t;
 
-/**
- * m - store the basic elements we are going to need
- *
- * @command: a pointer to the current command
- * @line: pointer to the current line
- * @isQ: check if stack or Queue
- *
- * Description: Store monty project basic comands
- *
- */
-
-typedef struct monty
-{
-	char **command;
-	char *line;
-	FILE *file;
-	unsigned int lineNum;
-	bool isQ;
-} m;
-
 
 void montyLoop(stack_t **list, m *montyD);
 char *_readline(char **line, int *len, FILE *inputFile);
 
 /* findCommand.c funcs */
-void (*findCom(char *command))(stack_t **, m *);
+void findCom(stack_t **list, m *montyD);
 
 /* parsecommand.c funcs */
 char *trimLine(char *line);
 char **parseCom(char *line);
-void remComment(char *line);
+int remComment(char *line);
 int checkNum(char *s);
 
 /* addNode_fucs.c */
 void freeNode(stack_t *head);
 void addNodeEnd(stack_t **head, int n);
-void addNodesStart(stack_t **head, int n);
+void addNodeStart(stack_t **head, int n);
 
 /* opCodeCommands1.c */
 void pushfunc(stack_t **list, m *montyD);

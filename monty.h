@@ -43,5 +43,22 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * m - store the basic elements we are going to need
+ *
+ * @command: a pointer to the current command
+ * @line: pointer to the current line
+ * @isQ: check if stack or Queue
+ *
+ * Description: Store monty project basic comands
+ *
+ */
+
+typedef struct monty
+{
+	char *command;
+	char *line;
+	bool isQ;
+} m;
 
 #endif /* MONTY_H */

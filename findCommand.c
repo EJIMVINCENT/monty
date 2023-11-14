@@ -2,8 +2,7 @@
 
 
 
-
-void (findCom(char *command))(stack_t **, unsigned int)
+void findCom(stack_t **list, m *montyD)
 {
 	int i;
 	instruction_t opCom[] =
@@ -13,11 +12,14 @@ void (findCom(char *command))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 
-	for (i = 0; opCom[i]; i++)
+	for (i = 0; opCom[i].f; i++)
 	{
-		if (strcmp(opCom[i].opcode, command) == 0)
-			break;
+		if (strcmp(opCom[i].opcode, montyD->command[0]) == 0)
+		{
+				opCom[i].f(list, montyD);
+				break;
+		}
 	}
-	return (opCom[i].f);
+
 
 }

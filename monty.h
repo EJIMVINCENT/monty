@@ -3,8 +3,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <string.h>
 
-
+#define DELIM " \t" 
 
 
 /**
@@ -21,9 +24,9 @@
 
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -39,8 +42,8 @@ typedef struct stack_s
 
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, m *montyD);
 } instruction_t;
 
 /**
@@ -56,9 +59,35 @@ typedef struct instruction_s
 
 typedef struct monty
 {
-	char *command;
+	char **command;
 	char *line;
+	FILE *file;
+	unsigned int lineNum;
 	bool isQ;
 } m;
+
+
+void montyLoop(stack_t **list, m *montyD);
+char *_readline(char **line, int *len, FILE *inputFile);
+
+/* findCommand.c funcs */
+void (*findCom(char *command))(stack_t **, m *);
+
+/* parsecommand.c funcs */
+char *trimLine(char *line);
+char **parseCom(char *line);
+void remComment(char *line);
+int checkNum(char *s);
+
+/* addNode_fucs.c */
+void freeNode(stack_t *head);
+void addNodeEnd(stack_t **head, int n);
+void addNodesStart(stack_t **head, int n);
+
+/* opCodeCommands1.c */
+void pushfunc(stack_t **list, m *montyD);
+void pallfunc(stack_t **list, m *montyD);
+
+
 
 #endif /* MONTY_H */

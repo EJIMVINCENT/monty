@@ -15,5 +15,5 @@ char *_readline(char **line, int *len, FILE *inputFile)
 		return (NULL);
 	}
 
-	return (line);
+	return (*line);
 }

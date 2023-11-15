@@ -26,24 +26,3 @@ void popfunc(stack_t **list, m *montyD)
 	free(temp);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

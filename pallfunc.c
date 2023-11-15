@@ -3,6 +3,7 @@
 
 /**
  * pallfunc - prints the stack.
+ *
  * @list: stack list
  * @montyD: pointer to m structure
  *

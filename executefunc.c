@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "monty.h"
 
 void executeCom(stack_t **list, m *montyD)
@@ -43,6 +44,8 @@ void executeCom(stack_t **list, m *montyD)
 	}
 }
 
+=======
+>>>>>>> 9b423ef109db777f30cc835705ee196f5d9d8595
 #include "monty.h"
 
 /**
@@ -57,11 +60,18 @@ void executeCom(stack_t **list, m *montyD)
 {
 	char *command;
 	int i;
-	instruction_t opCom[] = {
+	instruction_t opCom[] =
+	{
 		{"push", pushfunc},
 		{"pall", pallfunc},
-		{"pint", pintfunc},
+		{"add", addfunc},
+		{"sub", subfunc},
+		{"swap", swapfunc},
+		{"div", divfunc},
+		{"mul", mulfunc},
 		{"pop", popfunc},
+		{"mod", modfunc},
+		{"nop", nopfunc},
 		{NULL, NULL}
 	};
 
@@ -75,8 +85,8 @@ void executeCom(stack_t **list, m *montyD)
 	{
 		if (strcmp(opCom[i].opcode, command) == 0)
 		{
-			opCom[i].f(list, montyD);
-			return;
+				opCom[i].f(list, montyD);
+				return;
 		}
 	}
 	if (command && opCom[i].f == NULL)

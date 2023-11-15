@@ -77,8 +77,6 @@ void montyLoop(stack_t **list, m *montyD);
 /* findCommand.c funcs */
 void executeCom(stack_t **list, m *montyD);
 
-/* parsecommand.c funcs */
-int checkNum(char *s);
 
 /* addNode_fucs.c */
 void freeNode(stack_t *head);
@@ -89,8 +87,6 @@ void addNodeStart(stack_t **head, int n);
 void pushfunc(stack_t **list, m *montyD);
 void pallfunc(stack_t **list, m *montyD);
 void pintfunc(stack_t **list, m *montyD);
-
-
 void addfunc(stack_t **stack, m *montyD);
 void subfunc(stack_t **stack, m *montyD);
 void divfunc(stack_t **stack, m *montyD);

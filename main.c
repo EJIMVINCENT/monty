@@ -1,6 +1,13 @@
 #include "monty.h"
 
-
+/**
+ * main - program Entry point
+ *
+ * @ac: argument count
+ * @argv: argument vector
+ *
+ * Return: Always returns 0
+ */
 
 
 
@@ -27,9 +34,13 @@ int main(int ac, char *argv[])
 	return (0);
 }
 
-
-
-
+/**
+ * montyLoop - Code main loop
+ *
+ * @list: pointer to stack_t node
+ * @montyD: pointer to m struct.
+ *
+ */
 
 void montyLoop(stack_t **list, m *montyD)
 {

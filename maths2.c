@@ -1,11 +1,14 @@
 #include "monty.h"
 
 /**
- * pop_Op - removes a value from the top of a stack
+ * popfunc - removes a value from the top of a stack
+ *
  * @stack: a doubly linked list
  * @montyD: pointer to m
+ *
  */
-void pop_Op(stack_t **stack, m *montyD)
+
+void popfunc(stack_t **stack, m *montyD)
 {
 	stack_t *current = *stack;
 
@@ -23,11 +26,14 @@ void pop_Op(stack_t **stack, m *montyD)
 
 
 /**
- * swap_Op - swaps the first two values in the stack
+ * swapfunc - swaps the first two values in the stack
+ *
  * @stack: a doubly linked list
  * @montyD: pointer to m
+ *
  */
-void swap_Op(stack_t **stack, m *montyD)
+
+void swapfunc(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
 
@@ -66,12 +72,15 @@ void swap_Op(stack_t **stack, m *montyD)
 
 
 /**
- * mod_Op - computes remainder of division of top second element by first
+ * modfunc - computes remainder of division of top second element by first
  * element of stack
+ *
  * @stack: pointer to the stack
  * @montyD: pointer to m
+ *
  */
-void mod_Op(stack_t **stack, m *montyD)
+
+void modfunc(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
 

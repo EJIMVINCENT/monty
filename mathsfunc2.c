@@ -1,61 +1,59 @@
 #include "monty.h"
 
 /**
- * popfunc - removes a value from the top of a stack
+ * popfunc - removes a value from the top of a list
  *
- * @stack: a doubly linked list
+ * @list: a doubly linked list
  * @montyD: pointer to m
  *
  */
 
-void popfunc(stack_t **stack, m *montyD)
+void popfunc(stack_t **list, m *montyD)
 {
-	stack_t *current = *stack;
+	stack_t *temp = *list;
 
-	if ((current == NULL) || (stack == NULL))
+	if (*list == NULL)
 	{
 		fprintf(stderr, "L%s: can't pop an empty stack\n", montyD->line);
 		fclose(montyD->file);
 		free(montyD->line);
-		freeNode(*stack);
+		freeNode(*list);
 		exit(EXIT_FAILURE);
 	}
-	*stack = current->next;
-	if (current->next != NULL)
-		current->next->prev = NULL;
-	free(current);
+	*list = temp->next;
+	free(temp);
 }
 
 
 /**
- * swapfunc - swaps the first two values in the stack
+ * swapfunc - swaps the first two values in the list
  *
- * @stack: a doubly linked list
+ * @list: a doubly linked list
  * @montyD: pointer to m
  *
  */
 
-void swapfunc(stack_t **stack, m *montyD)
+void swapfunc(stack_t **list, m *montyD)
 {
-	stack_t *node1 = *stack, *node2;
+	stack_t *node1 = *list, *node2;
 
-	if ((stack == NULL) || (node1 == NULL))
+	if ((list == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%s: can't swap, stack too short\n",
+		fprintf(stderr, "L%s: can't swap, list too short\n",
 			montyD->line);
 		fclose(montyD->file);
 		free(montyD->line);
-		freeNode(*stack);
+		freeNode(*list);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%s: can't swap, stack too short\n",
+		fprintf(stderr, "L%s: can't swap, list too short\n",
 			montyD->line);
 		fclose(montyD->file);
 		free(montyD->line);
-		freeNode(*stack);
+		freeNode(*list);
 		exit(EXIT_FAILURE);
 	}
 
@@ -65,7 +63,7 @@ void swapfunc(stack_t **stack, m *montyD)
 		node2->next = node1;
 		node1->next = NULL;
 		node2->prev = NULL;
-		*stack = node2;
+		*list = node2;
 	}
 	else
 	{
@@ -74,41 +72,41 @@ void swapfunc(stack_t **stack, m *montyD)
 		node1->prev = node2;
 		node2->next = node1;
 		node2->prev = NULL;
-		*stack = node2;
+		*list = node2;
 	}
 }
 
 
 /**
  * modfunc - computes remainder of division of top second element by first
- * element of stack
+ * element of list
  *
- * @stack: pointer to the stack
+ * @list: pointer to the list
  * @montyD: pointer to m
  *
  */
 
-void modfunc(stack_t **stack, m *montyD)
+void modfunc(stack_t **list, m *montyD)
 {
-	stack_t *node1 = *stack, *node2;
+	stack_t *node1 = *list, *node2;
 
-	if ((stack == NULL) || (node1 == NULL))
+	if ((list == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%s: can't mod, stack too short\n",
+		fprintf(stderr, "L%s: can't mod, list too short\n",
 			montyD->line);
 		fclose(montyD->file);
 		free(montyD->line);
-		freeNode(*stack);
+		freeNode(*list);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%s: can't mod, stack too short\n",
+		fprintf(stderr, "L%s: can't mod, list too short\n",
 			montyD->line);
 		fclose(montyD->file);
 		free(montyD->line);
-		freeNode(*stack);
+		freeNode(*list);
 		exit(EXIT_FAILURE);
 	}
 	if (node1->n == 0)
@@ -116,11 +114,11 @@ void modfunc(stack_t **stack, m *montyD)
 		fprintf(stderr, "L%s: division by zero\n", montyD->line);
 		fclose(montyD->file);
 		free(montyD->line);
-		freeNode(*stack);
+		freeNode(*list);
 		exit(EXIT_FAILURE);
 	}
 	node2->n %= node1->n;
-	*stack = node2;
+	*list = node2;
 	node2->prev = NULL;
 	free(node1);
 }

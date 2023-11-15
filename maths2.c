@@ -3,16 +3,16 @@
 /**
  * pop_Op - removes a value from the top of a stack
  * @stack: a doubly linked list
- * @line_number: line where opcode appears
+ * @montyD: pointer to m
  */
-void pop_Op(stack_t **stack, unsigned int line_number)
+void pop_Op(stack_t **stack, m *montyD)
 {
 	stack_t *current = *stack;
 
 	if ((current == NULL) || (stack == NULL))
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n",
-			line_number);
+		fprintf(stderr, "L%s: can't pop an empty stack\n",
+			montyD->line);
 		exit(EXIT_FAILURE);
 	}
 	*stack = current->next;
@@ -25,23 +25,23 @@ void pop_Op(stack_t **stack, unsigned int line_number)
 /**
  * swap_Op - swaps the first two values in the stack
  * @stack: a doubly linked list
- * @line_number: line where opcode appears
+ * @montyD: pointer to m
  */
-void swap_Op(stack_t **stack, unsigned int line_number)
+void swap_Op(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
 
 	if ((stack == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n",
-			line_number);
+		fprintf(stderr, "L%s: can't swap, stack too short\n",
+			montyD->line);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n",
-			line_number);
+		fprintf(stderr, "L%s: can't swap, stack too short\n",
+			montyD->line);
 		exit(EXIT_FAILURE);
 	}
 
@@ -69,28 +69,28 @@ void swap_Op(stack_t **stack, unsigned int line_number)
  * mod_Op - computes remainder of division of top second element by first
  * element of stack
  * @stack: pointer to the stack
- * @line_number: line where opcode appears
+ * @montyD: pointer to m
  */
-void mod_Op(stack_t **stack, unsigned int line_number)
+void mod_Op(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
 
 	if ((stack == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%u: can't mod, stack too short\n",
-			line_number);
+		fprintf(stderr, "L%s: can't mod, stack too short\n",
+			montyD->line);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%u: can't mod, stack too short\n",
-			line_number);
+		fprintf(stderr, "L%s: can't mod, stack too short\n",
+			montyD->line);
 		exit(EXIT_FAILURE);
 	}
 	if (node1->n == 0)
 	{
-		fprintf(stderr, "L%u: division by zero\n", line_number);
+		fprintf(stderr, "L%s: division by zero\n", montyD->line);
 		exit(EXIT_FAILURE);
 	}
 	node2->n %= node1->n;

@@ -21,7 +21,7 @@ void pushfunc(stack_t **list, m *montyD)
 		{
 			if (montyD->arg[j] > '9' || montyD->arg[j] < '0')
 			{
-				flag = 1; 
+				flag = 1;
 				break;
 			}
 		}
@@ -31,7 +31,7 @@ void pushfunc(stack_t **list, m *montyD)
 			fclose(montyD->file);
 			free(montyD->line);
 			freeNode(*list);
-			exit(EXIT_FAILURE);  
+			exit(EXIT_FAILURE);
 		}
 	}
 	else
@@ -40,7 +40,7 @@ void pushfunc(stack_t **list, m *montyD)
 		fclose(montyD->file);
 		free(montyD->line);
 		freeNode(*list);
-		exit(EXIT_FAILURE); 
+		exit(EXIT_FAILURE);
 	}
 	n = atoi(montyD->arg);
 	if (montyD->isQ)

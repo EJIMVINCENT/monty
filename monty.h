@@ -1,30 +1,33 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <string.h>
+#include <unistd.h>
 
-#define DELIM " \t" 
-
+#define DELIM " \t\n" 
 
 
 /**
  * m - store the basic elements we are going to need
  *
- * @command: a pointer to the current command
+ * @arg: a pointer to the current command
  * @line: pointer to the current line
  * @isQ: check if stack or Queue
+ * @file: pointer to opened file
+ * @lineNum: current line in the file
  *
- * Description: Store monty project basic comands
+ * Description: Store monty project basic commands
  *
  */
 
 typedef struct monty
 {
-	char **command;
+	char *arg;
 	char *line;
 	FILE *file;
 	unsigned int lineNum;
@@ -70,15 +73,11 @@ typedef struct instruction_s
 
 
 void montyLoop(stack_t **list, m *montyD);
-char *_readline(char **line, int *len, FILE *inputFile);
 
 /* findCommand.c funcs */
-void findCom(stack_t **list, m *montyD);
+void executeCom(stack_t **list, m *montyD);
 
 /* parsecommand.c funcs */
-char *trimLine(char *line);
-char **parseCom(char *line);
-int remComment(char *line);
 int checkNum(char *s);
 
 /* addNode_fucs.c */
@@ -86,9 +85,10 @@ void freeNode(stack_t *head);
 void addNodeEnd(stack_t **head, int n);
 void addNodeStart(stack_t **head, int n);
 
-/* opCodeCommands1.c */
+/* bytecode commands */
 void pushfunc(stack_t **list, m *montyD);
 void pallfunc(stack_t **list, m *montyD);
+void pintfunc(stack_t **list, m *montyD);
 
 
 

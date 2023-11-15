@@ -7,7 +7,7 @@
 
 int main(int ac, char *argv[])
 {
-	stack_t *list;
+	stack_t *list = NULL;
 	m montyD = {NULL, NULL, NULL, 0, false};
 
 	if (ac != 2)
@@ -33,23 +33,21 @@ int main(int ac, char *argv[])
 
 void montyLoop(stack_t **list, m *montyD)
 {
-	char *line = NULL;
-	int len = 0;
-	int check;
+	char *line;
+	size_t len = 0;
+	int check = 1;
 
-	while (1)
+	while (check > 0)
 	{
-		montyD->line = _readline(&line, &len, montyD->file);
+		line = NULL;
+		check = getline(&line, &len, montyD->file);
+		montyD->line = line;
 		montyD->lineNum++;
-		if (montyD->line == NULL)
-			break;
+		if (check > 0)
+			executeCom(list, montyD);
+		free(line);
 
-		check = remComment(montyD->line);
-		 if (!check)
-		 	continue;
-		montyD->command = parseCom(montyD->line);
-
-		findCom(list, montyD);
-		free (line);
 	}
+	freeNode(*list);
+	fclose(montyD->file);
 }

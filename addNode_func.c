@@ -1,7 +1,7 @@
 #include "monty.h"
 
 
-void addNodesStart(stack_t **head, int n)
+void addNodeStart(stack_t **head, int n)
 {
 	stack_t *new;
 

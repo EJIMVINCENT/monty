@@ -17,6 +17,7 @@ void executeCom(stack_t **list, m *montyD)
 		{"mul", mulfunc},
 		{"pop", popfunc},
 		{"mod", modfunc},
+		{"nop", nopfunc},
 		{NULL, NULL}
 	};
 

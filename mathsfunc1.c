@@ -14,6 +14,9 @@ void addfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't add, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -22,6 +25,9 @@ void addfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't add, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -45,6 +51,9 @@ void subfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't sub, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -52,6 +61,9 @@ void subfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't sub, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n -= node1->n;
@@ -74,6 +86,9 @@ void mulfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't mul, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -81,6 +96,9 @@ void mulfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't mul, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n *= node1->n;

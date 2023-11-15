@@ -14,8 +14,10 @@ void popfunc(stack_t **stack, m *montyD)
 
 	if ((current == NULL) || (stack == NULL))
 	{
-		fprintf(stderr, "L%s: can't pop an empty stack\n",
-			montyD->line);
+		fprintf(stderr, "L%s: can't pop an empty stack\n", montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	*stack = current->next;
@@ -41,6 +43,9 @@ void swapfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't swap, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -48,6 +53,9 @@ void swapfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't swap, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -88,6 +96,9 @@ void modfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't mod, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -95,11 +106,17 @@ void modfunc(stack_t **stack, m *montyD)
 	{
 		fprintf(stderr, "L%s: can't mod, stack too short\n",
 			montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	if (node1->n == 0)
 	{
 		fprintf(stderr, "L%s: division by zero\n", montyD->line);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n %= node1->n;

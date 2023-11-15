@@ -2,11 +2,12 @@
 
 
 /**
- * _pall - prints the stack.
+ * pallfunc - prints the stack.
  * @list: stack list
- * @counter: .
- * Return: .
+ * @montyD: pointer to m structure
+ *
 */
+
 void pallfunc(stack_t **list, m *montyD)
 {
 	stack_t *h;

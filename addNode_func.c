@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * addNodeStart - adds a node to the head of a linked list
+ *
+ * @head: head of the list
+ * @n: number to be added
+ *
+ */
 
 void addNodeStart(stack_t **head, int n)
 {
@@ -21,7 +28,14 @@ void addNodeStart(stack_t **head, int n)
 
 }
 
-
+/**
+ * addNodeEnd - adds a node to the head of a linked
+ * (QUEUE)
+ *
+ * @head: head of the list
+ * @n: number to be added
+ *
+ */
 
 
 void addNodeEnd(stack_t **head, int n)
@@ -49,6 +63,13 @@ void addNodeEnd(stack_t **head, int n)
 	new->prev = temp;
 }
 
+
+/**
+ * freeNode - free a linked list
+ *
+ * @head: head of the list
+ *
+ */
 
 void freeNode(stack_t *head)
 {

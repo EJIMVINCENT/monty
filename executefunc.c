@@ -12,8 +12,7 @@ void executeCom(stack_t **list, m *montyD)
 {
 	char *command;
 	int i;
-	instruction_t opCom[] =
-	{
+	instruction_t opCom[] = {
 		{"push", pushfunc},
 		{"pall", pallfunc},
 		{"add", addfunc},
@@ -37,8 +36,8 @@ void executeCom(stack_t **list, m *montyD)
 	{
 		if (strcmp(opCom[i].opcode, command) == 0)
 		{
-				opCom[i].f(list, montyD);
-				return;
+			opCom[i].f(list, montyD);
+			return;
 		}
 	}
 	if (command && opCom[i].f == NULL)

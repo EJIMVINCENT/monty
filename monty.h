@@ -91,12 +91,12 @@ void pallfunc(stack_t **list, m *montyD);
 void pintfunc(stack_t **list, m *montyD);
 
 
-void add_Op(stack_t **stack, m *montyD);
-void sub_Op(stack_t **stack, m *montyD);
-void div_Op(stack_t **stack, m *montyD);
-void mul_Op(stack_t **stack, m *montyD);
-void mod_Op(stack_t **stack, m *montyD);
-void swap_Op(stack_t **stack, m *montyD);
-void pop_Op(stack_t **stack, m *montyD);
+void addfunc(stack_t **stack, m *montyD);
+void subfunc(stack_t **stack, m *montyD);
+void divfunc(stack_t **stack, m *montyD);
+void mulfunc(stack_t **stack, m *montyD);
+void modfunc(stack_t **stack, m *montyD);
+void swapfunc(stack_t **stack, m *montyD);
+void popfunc(stack_t **stack, m *montyD);
 
 #endif /* MONTY_H */

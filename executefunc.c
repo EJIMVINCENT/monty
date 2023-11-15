@@ -10,13 +10,13 @@ void executeCom(stack_t **list, m *montyD)
 	{
 		{"push", pushfunc},
 		{"pall", pallfunc},
-		{"add", add_Op},
-		{"sub", sub_Op},
-		{"swap", swap_Op},
-		{"div", div_Op},
-		{"mul", mul_Op},
-		{"pop", pop_Op},
-		{"mod", mod_Op},
+		{"add", addfunc},
+		{"sub", subfunc},
+		{"swap", swapfunc},
+		{"div", divfunc},
+		{"mul", mulfunc},
+		{"pop", popfunc},
+		{"mod", modfunc},
 		{NULL, NULL}
 	};
 

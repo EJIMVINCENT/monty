@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * add_Op - adds the first two values in the stack
+ * addfunc - adds the first two values in the stack
  * stores the result in the second element of the stack then pops first element
  * @stack: a doubly linked list
  * @montyD: poiter to m
  */
-void add_Op(stack_t **stack, m *montyD)
+void addfunc(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
 
@@ -33,11 +33,11 @@ void add_Op(stack_t **stack, m *montyD)
 
 
 /**
- * sub_Op - subtracts top element of stack from second element of stack
+ * subfunc - subtracts top element of stack from second element of stack
  * @stack: pointer to the stack
  * @montyD: pointer to m
  */
-void sub_Op(stack_t **stack, m *montyD)
+void subfunc(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
 
@@ -62,11 +62,11 @@ void sub_Op(stack_t **stack, m *montyD)
 
 
 /**
- * mul_Op - multiplies the second and first elements of the stack
+ * mulfunc - multiplies the second and first elements of the stack
  * @stack: pointer to the stack
  * @montyD: pointer to m
  */
-void mul_Op(stack_t **stack, m *montyD)
+void mulfunc(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
 
@@ -91,11 +91,11 @@ void mul_Op(stack_t **stack, m *montyD)
 
 
 /**
- * div_Op -  divides the second element of stack by first element of stack
+ * divfunc -  divides the second element of stack by first element of stack
  * @stack: pointer to the stack
  * @montyD: pointer to m
  */
-void div_Op(stack_t **stack, m *montyD)
+void divfunc(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
 

@@ -15,6 +15,7 @@ void executeCom(stack_t **list, m *montyD)
 	instruction_t opCom[] = {
 		{"push", pushfunc},
 		{"pall", pallfunc},
+		{"pint", pintfunc},
 		{"add", addfunc},
 		{"sub", subfunc},
 		{"swap", swapfunc},

@@ -12,16 +12,22 @@ void addfunc(stack_t **stack, m *montyD)
 
 	if ((stack == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%s: can't add, stack too short\n",
-			montyD->line);
+		fprintf(stderr, "L%u: can't add, stack too short\n",
+			montyD->lineNum);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%s: can't add, stack too short\n",
-			montyD->line);
+		fprintf(stderr, "L%u: can't add, stack too short\n",
+			montyD->lineNum);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -43,15 +49,21 @@ void subfunc(stack_t **stack, m *montyD)
 
 	if ((stack == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%s: can't sub, stack too short\n",
-			montyD->line);
+		fprintf(stderr, "L%u: can't sub, stack too short\n",
+			montyD->lineNum);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%s: can't sub, stack too short\n",
-			montyD->line);
+		fprintf(stderr, "L%u: can't sub, stack too short\n",
+			montyD->lineNum);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n -= node1->n;
@@ -72,15 +84,21 @@ void mulfunc(stack_t **stack, m *montyD)
 
 	if ((stack == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%s: can't mul, stack too short\n",
-			montyD->line);
+		fprintf(stderr, "L%u: can't mul, stack too short\n",
+			montyD->lineNum);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%s: can't mul, stack too short\n",
-			montyD->line);
+		fprintf(stderr, "L%u: can't mul, stack too short\n",
+			montyD->lineNum);
+		fclose(montyD->file);
+		free(montyD->line);
+		freeNode(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n *= node1->n;
@@ -101,20 +119,20 @@ void divfunc(stack_t **stack, m *montyD)
 
 	if ((stack == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%s: can't div, stack too short\n",
-			montyD->line);
+		fprintf(stderr, "L%u: can't div, stack too short\n",
+			montyD->lineNum);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%s: can't div, stack too short\n",
-			montyD->line);
+		fprintf(stderr, "L%u: can't div, stack too short\n",
+			montyD->lineNum);
 		exit(EXIT_FAILURE);
 	}
 	if (node1->n == 0)
 	{
-		fprintf(stderr, "L%s: division by zero\n", montyD->line);
+		fprintf(stderr, "L%u: division by zero\n", montyD->lineNum);
 		exit(EXIT_FAILURE);
 	}
 	node2->n /= node1->n;

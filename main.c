@@ -48,6 +48,7 @@ void montyLoop(stack_t **list, m *montyD)
 	size_t len = 0;
 	int check = 1;
 
+
 	while (check > 0)
 	{
 		line = NULL;

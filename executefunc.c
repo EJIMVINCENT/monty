@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 #include "monty.h"
-
-
 
 void executeCom(stack_t **list, m *montyD)
 {
@@ -45,7 +42,7 @@ void executeCom(stack_t **list, m *montyD)
 		exit(EXIT_FAILURE);
 	}
 }
-=======
+
 #include "monty.h"
 
 /**
@@ -91,4 +88,3 @@ void executeCom(stack_t **list, m *montyD)
 		exit(EXIT_FAILURE);
 	}
 }
->>>>>>> b7ef294a5a3fd34e2f2a9372482bc103ddfd4ad8

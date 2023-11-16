@@ -25,4 +25,5 @@ void rotrfunc(stack_t **list, m *montyD)
 	(*list)->prev = bottom;
 	bottom->prev = NULL;
 	bottom->next = *list;
+	*list = bottom;
 }

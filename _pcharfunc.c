@@ -2,9 +2,12 @@
 
 /**
  * pcharfunc - prints the character at the top of the stack
+ *
  * @stack: pointer to the stack
  * @montyD: pointer to m
+ *
  */
+
 void pcharfunc(stack_t **stack, m *montyD)
 {
 	stack_t *current = *stack;

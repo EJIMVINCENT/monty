@@ -3,9 +3,12 @@
 /**
  * addfunc - adds the first two values in the stack
  * stores the result in the second element of the stack then pops first element
+ *
  * @stack: a doubly linked list
  * @montyD: poiter to m
+ *
  */
+
 void addfunc(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
@@ -40,8 +43,10 @@ void addfunc(stack_t **stack, m *montyD)
 
 /**
  * subfunc - subtracts top element of stack from second element of stack
+ *
  * @stack: pointer to the stack
  * @montyD: pointer to m
+ *
  */
 void subfunc(stack_t **stack, m *montyD)
 {
@@ -75,9 +80,12 @@ void subfunc(stack_t **stack, m *montyD)
 
 /**
  * mulfunc - multiplies the second and first elements of the stack
+ *
  * @stack: pointer to the stack
- * @montyD: pointer to m
+ * @montyD: pointer to m struct
+ *
  */
+
 void mulfunc(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;
@@ -110,9 +118,12 @@ void mulfunc(stack_t **stack, m *montyD)
 
 /**
  * divfunc -  divides the second element of stack by first element of stack
+ *
  * @stack: pointer to the stack
- * @montyD: pointer to m
+ * @montyD: pointer to m struct
+ *
  */
+
 void divfunc(stack_t **stack, m *montyD)
 {
 	stack_t *node1 = *stack, *node2;

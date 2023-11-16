@@ -1,4 +1,4 @@
-This is 0x19. C - Stacks, Queues - LIFO, FIFO.
+# This is 0x19. C - Stacks, Queues - LIFO, FIFO.
 
 # monty
 README file
@@ -35,3 +35,6 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
 ## Task 7. div: Implement the div opcode.
 ## Task 8. mul: Implement the mul opcode.
 ## Task 9. mod: Implement the mod opcode.
+### Task 10. comments.
+### Task 11. pchar: Implement the pchar opcode.
+### Task 12. pstr:Implement the pstr opcode.

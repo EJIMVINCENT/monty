@@ -40,3 +40,6 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
 ### Task 12. pstr: Implement the pstr opcode.
 ### Task 13. rotl: Implement the rotl opcode.
 ### Task 14. rotr: Implement the rotr opcode.
+### Task 15. stack, queue: Implement the stack and queue opcodes.
+### Task 16: Brainf*ck: Write a Brainf*ck script that prints School, followed by a new line.
+##

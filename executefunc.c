@@ -28,6 +28,8 @@ void executeCom(stack_t **list, m *montyD)
 		{"pstr", pstrfunc},
 		{"rotl", rot1func},
 		{"rotr", rotrfunc},
+		{"queue", queuefunc},
+		{"stack", stackfunc},
 		{NULL, NULL}
 	};
 

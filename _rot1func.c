@@ -14,7 +14,7 @@ void rot1func(stack_t **head, m *montyD)
 	stack_t *temp, *bottom;
 
 	(void)montyD;
-	
+
 	if (!head || !(*head) || (*head)->next == NULL)
 		return;
 

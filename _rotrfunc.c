@@ -13,7 +13,7 @@ void rotrfunc(stack_t **list, m *montyD)
 	stack_t *bottom;
 
 	(void)montyD;
-	if ( !list || !(*list) || (*list)->next == NULL)
+	if (!list || !(*list) || (*list)->next == NULL)
 		return;
 
 

@@ -24,5 +24,4 @@ void popfunc(stack_t **stack, m *montyD)
 	if (current->next != NULL)
 		current->next->prev = NULL;
 	free(current);
-	
 }

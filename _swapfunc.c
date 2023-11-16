@@ -50,4 +50,3 @@ void swapfunc(stack_t **stack, m *montyD)
 		*stack = node2;
 	}
 }
-

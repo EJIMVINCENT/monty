@@ -29,3 +29,6 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
 # Task 1. pint: Implement the pint opcode.
 # Task 2. pop: Implement the pop opcode.
 # Task 3. swap: Implement the swap opcode.
+# Task 4. add: Implement the add opcode.
+# Task 5. nop: Implement the nop opcode.
+# Task 6. sub: Implement the sub opcode.

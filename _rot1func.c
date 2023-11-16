@@ -18,7 +18,7 @@ void rot1func(stack_t **head, m *montyD)
 
 	temp = *head;
 	(*head) = (*head)->next;
-	bottom = (*head)->next;
+	bottom = temp->next;
 	while (bottom->next != NULL)
 		bottom = bottom->next;
 

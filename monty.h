@@ -95,5 +95,6 @@ void modfunc(stack_t **stack, m *montyD);
 void swapfunc(stack_t **stack, m *montyD);
 void popfunc(stack_t **stack, m *montyD);
 void nopfunc(stack_t **stack, m *montyD);
+void rot1func(stack_t **head, m *montyD);
 
 #endif /* MONTY_H */

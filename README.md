@@ -25,5 +25,7 @@ Files containing Monty byte codes usually have the .m extension. Most of the ind
 ## The code was compiled with: gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
 
 ## TASKS:
-Task 0. push, pall: Implement the push and pall opcodes.
-Task 1. pint: Implement the pint opcode.
+# Task 0. push, pall: Implement the push and pall opcodes.
+# Task 1. pint: Implement the pint opcode.
+# Task 2. pop: Implement the pop opcode.
+# Task 3. swap: Implement the swap opcode.

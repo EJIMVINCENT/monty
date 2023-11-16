@@ -98,6 +98,7 @@ void nopfunc(stack_t **stack, m *montyD);
 void pcharfunc(stack_t **stack, m *montyD);
 void pstrfunc(stack_t **stack, m *montyD);
 void rot1func(stack_t **head, m *montyD);
+void rotrfunc(stack_t **list, m *montyD);
 void queuefunc(stack_t **stack, m *montyD);
 void stackfunc(stack_t **stack, m *montyD);
 

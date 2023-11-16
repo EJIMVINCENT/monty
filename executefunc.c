@@ -24,7 +24,7 @@ void executeCom(stack_t **list, m *montyD)
 		{"pop", popfunc},
 		{"mod", modfunc},
 		{"nop", nopfunc},
-		{"rot1", rot1func},
+		{"rotl", rot1func},
 		{NULL, NULL}
 	};
 
@@ -34,8 +34,8 @@ void executeCom(stack_t **list, m *montyD)
 
 	montyD->arg = strtok(NULL, DELIM);
 
-	for (i = 0; opCom[i].f && command; i++)
-	{
+	for (i = 0; opCom[i].opcode && command; i++)
+	{	
 		if (strcmp(opCom[i].opcode, command) == 0)
 		{
 			opCom[i].f(list, montyD);

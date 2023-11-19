@@ -73,17 +73,17 @@ ALX provided two structures for our use. While I utilized them, I made modificat
 
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+		int n;
+		struct stack_s *prev;
+		struct stack_s *next;
 } stack_t;
 
 stack_t is a doubly linked list used for storing elements in either a stack or queue format.
 
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+		char *opcode;
+		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 instruction_t is a structure that stores the current opcode and a pointer to the opcode command function. This function is invoked when the corresponding opcode is identified. Essentially, we create an array of instruction_t structures, each representing a potential opcode.
@@ -138,10 +138,10 @@ I have devised a function, `addNodeStart`, that appends a node to the start of a
 -	Validate if the next node is NULL
 -	If it isn't, assign the `prev` of the next node to point to the new node. This precaution prevents the dereferencing of a null pointer when the new element is the first element in the list.
 
-#pall
+`pall`
 The opecode pall prints all the values on the stack, starting from the top of the stack. the opcode is called with no argument. The pall function is implementated in such a way that it moves throught the list and prints all the items in the stack till it encounters null.
 
-PSEUDOCODE:
+**PSEUDOCODE:**
 -	Check if head of the list is NULL
 	a.	return if yes
 -	while head of the list is not NULL
@@ -152,12 +152,12 @@ PSEUDOCODE:
 
 
 
-TASK 1: Implement the pint opcode.
+**TASK 1:** Implement the pint opcode.
 The pint function prints the value at the top of the stack.
 
-TASK 2: Implement the pop opcode. The pop opcode removes the node at the top of the stack.
+**TASK 2:** Implement the pop opcode. The pop opcode removes the node at the top of the stack.
 
-PSEUDOCODE:
+**PSEUDOCODE:**
 
 -	Assign a new variable, curr, to point to the head of the list.
 -	Set the head of the list to the next node on the list (head = head->next).
@@ -167,7 +167,7 @@ PSEUDOCODE:
 
 
 
-ASK 3: Implement the swap opcode. The swap opcode interchanges the top two elements of the stack.
+**TASK 3:** Implement the swap opcode. The swap opcode interchanges the top two elements of the stack.
 
 The function initially verifies if there are at least two nodes in the list by checking if the next node is null. If it is, the program terminates and the appropriate error message is displayed on stderr.
 
@@ -175,95 +175,95 @@ The program designates two pointers, node1 and node2, of the stack_t struct. nod
 
 If node2->next is not null, the following operations are performed: we access node2->next and set its prev to point to node1. This ensures that we can still access the rest of the list. Also, node1->next is set to node2->next. After that, we ensure the head of the list is set to node2.
 
-PSEUDOCODE:
+**PSEUDOCODE:**
 
 - Initialize two pointers of stack_t struct: node1 and node2
 - Set node1 to point to the head of the list
 - Set node2 to point to the next node in the list
 
 - Check if node2->next is null (indicating there are only two nodes in the list)
-    - If yes:
-        - Set node1->prev to node2
-        - Set node2->next to node1
-        - Set node1->next to NULL
-        - Set node2->prev to NULL
+	- If yes:
+		- Set node1->prev to node2
+		- Set node2->next to node1
+		- Set node1->next to NULL
+		- Set node2->prev to NULL
 
 - If node2->next is not null:
-    - Access node2->next and set its prev to point to node1
-    - Set node1->next to node2->next
+	- Access node2->next and set its prev to point to node1
+	- Set node1->next to node2->next
 	- Set node1->prev to node2
 	- Set node2->next to node1
 - Ensure the head of the list is set to node2
 
 
-TASK 4: Implement the add opcode.
+**TASK 4:** Implement the add opcode.
 The opcode add adds the top two elements of the stack. The function addeds the values stored in the top two nodes of the list and then store the value in the second node, and the first node is removed, the list head then points to the second node making it the new head.
 
-TASK 5: Implement the nop opcode.
+**TASK 5:** Implement the nop opcode.
 The opcode nop doesn’t do anything.
 
 
-TASK 6: Implement the sub opcode.
+**TASK 6:** Implement the sub opcode.
 The opcode sub subtracts the top element of the stack from the second top element of the stack. The function subtracts the values stored in the top two nodes of the list and then store the value in the second node, and the first node is removed, the list head then points to the second node making it the new head.
 TASK 7: Implement the div opcode.
 The opcode div divides the second top element of the stack by the top element of the stack.
 
-TASK 8: Implement the mul opcode.
+**TASK 8:** Implement the mul opcode.
 The opcode mul multiplies the second top element of the stack with the top element of the stack.
 
-TASK 9: Implement the mod opcode.
+**TASK 9:** Implement the mod opcode.
 The opcode mod computes the rest of the division of the second top element of the stack by the top element of the stack.
 
-TASK 10: Remove comments
+**TASK 10:** Remove comments
 
 
-TASK 11: Implement the pchar opcode.**
+**TASK 11:** Implement the pchar opcode.**
 The `pchar` opcode prints the character at the top of the stack, followed by a new line. It displays the ASCII representation of the integer stored at the top of the stack.
 
-PSEUDOCODE:
+**PSEUDOCODE:**
 - Check if the stack is not empty
 - If it is, print an error message and exit
 - Otherwise, print the ASCII representation of the integer at the top of the stack
 
 
-TASK 12: Implement the pstr opcode.**
+**TASK 12:** Implement the pstr opcode.**
 The `pstr  opcode prints the string starting at the top of the stack, followed by a new line. This function traverses the entire list and prints the ASCII representation of each integer stored in each node.
 
-PSEUDOCODE:
+**PSEUDOCODE:**
 - Start at the top of the stack
 - While the stack is not empty:
-    - Print the ASCII representation of the integer at the current node
-    - Move to the next node
+	- Print the ASCII representation of the integer at the current node
+	- Move to the next node
 - Print a new line
 
 
-TASK 13: Implement the rotl opcode.**
+**TASK 13:** Implement the rotl opcode.**
 The `rotl` opcode rotates the stack to the top. The function sets the first element in the list to be the last and sets the second element on the list to be the head of the list.
 
-PSEUDOCODE:
+**PSEUDOCODE:**
 rotl_opcode:
 - Check if the stack has more than one node
 - If it does:
-    - Move the head of the stack to the end
-    - Set the second node as the new head of the stack
+	- Move the head of the stack to the end
+	- Set the second node as the new head of the stack
 
 
 
-TASK 14: Implement the rotr opcode. The rotr opcode rotates the stack to the bottom. This function promotes the last element on the stack to the top of the stack and sets the second element on the stack to null.
+**TASK 14:** Implement the rotr opcode. The rotr opcode rotates the stack to the bottom. This function promotes the last element on the stack to the top of the stack and sets the second element on the stack to null.
 
-PSEUDOCODE:
+**PSEUDOCODE:**
 
 rotr_opcode:
 - Check if the stack has more than one node
 - If it does:
-    - Move the last node of the stack to the top
-    - Set the second node's next pointer to NULL
+	- Move the last node of the stack to the top
+	- Set the second node's next pointer to NULL
 
-TASK 15: Implement the stack and queue opcodes. The stack opcode sets the format of the data to a stack (LIFO). This is the default behavior of the program. When the opcode is passed, the isQ element of the monty struct is set to false.
+**TASK 15:** Implement the stack and queue opcodes. The stack opcode sets the format of the data to a stack (LIFO). This is the default behavior of the program. When the opcode is passed, the isQ element of the monty struct is set to false.
 
 The queue opcode sets the format of the data to a queue (FIFO). When the opcode is passed, the isQ element of the monty struct is set to true.
 
-PSEUDOCODE:
+**PSEUDOCODE:**
 
 stack_opcode:
 - Set the isQ element of the monty struct to false
@@ -271,11 +271,11 @@ stack_opcode:
 queue_opcode:
 - Set the isQ element of the monty struct to true
 
-TASK 16: Cracking Brainf*ck to Write "School" and Beyond
+**TASK 16:** Cracking Brainf*ck to Write "School" and Beyond
 
-Imagine Brainf*ck as a quirky language with just eight super-basic rules. It's like having a tiny set of LEGO blocks to build anything you want! But here's the twist: it works with two cool tools called data and instruction pointers, which help it decide what to do next.
+Imagine Brainf*ck as a quirky language with just eight super basic rules. It's like having a tiny set of LEGO blocks to build anything you want! But here's the twist: it works with two cool tools called data and instruction pointers, which help it decide what to do next.
 
-The Brainf*ck Rules:
+**The Brainf*ck Rules:**
 
 +: Add to the number in a memory spot
 -: Subtract from the number in a memory spot
@@ -283,15 +283,15 @@ The Brainf*ck Rules:
 ,: Get a letter or symbol from someone and save it
 [: If a memory spot's number is zero, skip forward
 ]: If a memory spot's number isn’t zero, go back
-Trying to make Brainfck write "School" took me on a rollercoaster! At first, I thought about making each letter using numbers, but that felt too easy. So instead, I crafted a plan to gradually increase some numbers and tweak the rest myself. Working with loops in Brainfck is like playing a puzzle game—careful moves to change the right numbers at the right time.
+Trying to make Brainfck write "School" took me on a rollercoaster! At first, I thought about making each letter using numbers, but that felt too easy. So instead, I crafted a plan to gradually increase some numbers and tweak the rest myself. Working with loops in Brainfck is like playing a puzzle game careful moves to change the right numbers at the right time.
 
-Then, the next challenge hit—multiplication in Brainf*ck. Picture this: to multiply 'a' and 'b', you need a loop that goes 'b' times and repeats it 'a' times. Sounds like a mind-boggling loop within a loop, right? But here's the catch: after the inside loop finishes, I had to figure out a tricky way to reset it back to where it started. So, I danced between numbers, shifting them around to keep the loop going.
+Then, the next challenge hit multiplication in Brainf*ck. Picture this: to multiply 'a' and 'b', you need a loop that goes 'b' times and repeats it 'a' times. Sounds like a mind-boggling loop within a loop, right? But here's the catch: after the inside loop finishes, I had to figure out a tricky way to reset it back to where it started. So, I danced between numbers, shifting them around to keep the loop going.
 
-Now, the ultimate puzzle—printing a number that's longer than one character. Multiplying numbers was like cracking a tough nut, but printing a number that's more than one character long? It’s like climbing the tallest mountain in Brainfck land! I've tried, failed, and tried again. The solution's hiding somewhere, and I'm on a quest to uncover it. Stay tuned for the next chapter in this Brainfck adventure!
+Now, the ultimate puzzle printing a number that's longer than one character. Multiplying numbers was like cracking a tough nut, but printing a number that's more than one character long? It’s like climbing the tallest mountain in Brainfck land! I've tried, failed, and tried again. The solution's hiding somewhere, and I'm on a quest to uncover it. Stay tuned for the next chapter in this Brainfck adventure!
 
 
-TASK 17: Add two digits given by the user.
-TASK 18: Multiply two digits given by the user.
-TASK 19: Multiply two digits given by the user.
+**TASK 17:** Add two digits given by the user.
+**TASK 18:** Multiply two digits given by the user.
+**TASK 19:** Multiply two digits given by the user.
 
 **THIS WAS FUN**

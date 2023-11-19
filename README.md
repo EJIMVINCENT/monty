@@ -78,6 +78,8 @@ typedef struct stack_s
 		struct stack_s *next;
 } stack_t;
 
+
+
 stack_t is a doubly linked list used for storing elements in either a stack or queue format.
 
 typedef struct instruction_s

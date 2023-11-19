@@ -63,6 +63,7 @@ uses this standard but it is not required by the specification of the language. 
 not more than one instruction per line. There can be any number of spaces before or 
 after the opcode and its argument:
 
+
 The primary objective of this project, in my view, is to provide a deeper understanding of data structures and guide the selection process. It delves into the concepts of stacks and queues, highlighting their differences.
 
 A stack is a data structure where both insertions and deletions occur at the same end. Conversely, a queue is a data structure where elements are added from the back (enqueued) and removed from the front (dequeued).
